@@ -37,3 +37,28 @@ for (let i = 0; i < odd.length; i++) {
     odd[i].style.backgroundColor = "#f4f4f4";
     even[i].style.backgroundColor = "#ccc";
 }
+
+// task sevan
+
+// Add helle before item Listner
+
+let li = document.createElement('div');
+li.className = 'hello';
+li.id = 'hello1';
+li.title = 'Hello div';
+li.textContent = ' hello guys';
+let container = document.querySelector('header .container');
+let h = document.querySelector('header h1');
+container.insertBefore(li, h);
+
+// Add helle before item Listner
+
+let li = document.createElement('div');
+li.className = 'hello';
+li.id = 'hello1';
+li.title = 'Hello div';
+li.textContent = ' hello guys';
+let container = document.querySelector('.container #main');
+let h = document.querySelector('#main form');
+
+container.insertBefore(li, h);
