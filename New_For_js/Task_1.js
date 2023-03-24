@@ -361,6 +361,21 @@ function showUsersOnScreen(x) {
     deleteBtn.id = 'btn';
     deleteBtn.type = 'button';
     deleteBtn.value = 'Delete';
+    
+    // create EditBtn
+
+    let EditBtn = document.createElement('input'); //task number 14
+
+    EditBtn.id = 'btn';
+    EditBtn.type = 'button';
+    EditBtn.value = 'Edit';
+    EditBtn.onclick = (e) => {
+        userName.value = x.name;
+        userEmail.value = x.mail;
+        usermob.value = x.mobile;
+        parent.removeChild(child);
+    }
+    child.appendChild(EditBtn);
 
     
     deleteBtn.onclick = (e) => {
