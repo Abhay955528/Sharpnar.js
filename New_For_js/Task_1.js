@@ -273,7 +273,7 @@ function addItem(e) {
 }
 
 
-// task number 12 
+// task number 12-------------------------------------------------
 
 let myFrom = document.getElementById('my-form');
 let userName = document.getElementById('name');
@@ -311,4 +311,65 @@ function addItem(e) {
         userEmail.value = '';
         usermob.value = '';
     }
+}
+
+// task number 13 ----------------------------------------------------------------------------
+
+let myFrom = document.getElementById('my-form');
+let userName = document.getElementById('name');
+let userEmail = document.getElementById('email');
+let usermob = document.getElementById('Mob');
+
+myFrom.addEventListener('submit', addItem);
+
+
+function addItem(e) {
+    e.preventDefault();
+    if (userName.value === '' || userEmail.value === '' || usermob.value === '') {
+        alert('Fill the all details');
+    }
+    else {
+        const name = userName.value;
+        const mail = userEmail.value;
+        const mobile = Mob.value;
+
+        let x = {
+            name,
+            mail,
+            mobile,
+        }
+        localStorage.setItem(x.mail, JSON.stringify(x))
+        showUsersOnScreen(x);
+        // create feild
+
+        userName.value = '';
+        userEmail.value = '';
+        usermob.value = '';
+    }
+}
+
+function showUsersOnScreen(x) {
+    let parent = document.getElementById('user');
+    let child = document.createElement('li');
+
+
+    child.appendChild(document.createTextNode(`${userName.value}:${userEmail.value}:${usermob.value}`));
+
+    // create delete
+
+    let deleteBtn = document.createElement('input');
+    deleteBtn.id = 'btn';
+    deleteBtn.type = 'button';
+    deleteBtn.value = 'Delete';
+
+    
+    deleteBtn.onclick = (e) => {
+        if (confirm("Are You Sure?")) {
+            var li = e.target.parentElement;
+            localStorage.removeItem(x.mail);
+            parent.removeChild(child);
+        }
+    };
+    child.appendChild(deleteBtn);
+    parent.appendChild(child);
 }
