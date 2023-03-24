@@ -230,6 +230,44 @@ function filterItem(e) {
             item.style.display = 'none';
         }
     })
+}
+
+// task ten ---------------------
+
+let myFrom = document.getElementById('my-form');
+let userName = document.getElementById('name');
+let userEmail = document.getElementById('email');
+let usermob = document.getElementById('Mob');
+let parent = document.getElementById('user');
 
 
+myFrom.addEventListener('submit', addItem);
+
+function addItem(e) {
+    e.preventDefault();
+    if (userName.value === '' || userEmail.value === '' || usermob.value === '') {
+        alert('Fill the all details');
+    }
+    else {
+        let child = document.createElement('li');
+        child.appendChild(document.createTextNode(`${userName.value}:${userEmail.value}:${usermob.value}`));
+        const name = userName.value;
+        const mail = userEmail.value;
+        const mobile = Mob.value;
+
+        let x = {
+            name,
+            mail,
+            mobile,
+        }
+        let obj = JSON.stringify(x);
+        localStorage.setItem(userEmail.value, obj);
+        console.log(localStorage);
+        
+        // create feild
+        
+        userName.value = '';
+        userEmail.value = '';
+        usermob.value = '';
+    }
 }
