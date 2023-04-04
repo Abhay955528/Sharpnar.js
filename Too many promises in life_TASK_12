@@ -1,0 +1,53 @@
+function updateLastUserActivityTime(user) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        user.lastActivity = new Date();
+        resolve(user.lastActivity);
+      }, 1000);
+    });
+  }
+
+  const posts = [];
+const user = { name: 'John', lastActivity: null };
+
+function createPost(post) {
+  return new Promise((resolve, reject) => {
+    // Simulating an API call that creates a post after 2 seconds
+    setTimeout(() => {
+      posts.push(post);
+      resolve(post);
+    }, 2000);
+  });
+}
+
+function deletePost(post) {
+  return new Promise((resolve, reject) => {
+    // Simulating an API call that deletes a post after 2 seconds
+    setTimeout(() => {
+      const index = posts.indexOf(post);
+      if (index !== -1) {
+        posts.splice(index, 1);
+        resolve();
+      } else {
+        reject(new Error('Post not found'));
+      }
+    }, 2000);
+  });
+}
+
+// Usage:
+createPost({ title: 'My first post', content: 'Hello world' })
+  .then(post => {
+    console.log(`Post created: ${post.title}`);
+    return updateLastUserActivityTime(user);
+  })
+  .then(lastActivityTime => {
+    console.log(`Last activity time: ${lastActivityTime}`);
+    console.log(`All posts:`, posts);
+    return deletePost(posts[posts.length - 1]);
+  })
+  .then(() => {
+    console.log(`Post deleted`);
+    console.log(`New set of posts:`, posts);
+  })
+  .catch(error => console.error(error));
