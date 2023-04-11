@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        ul{
+            padding: 5vh;
+            list-style: none;
+            display: -webkit-box;
+        }
+        li{
+            padding: 0 20px
+        }
+        .btn{
+            padding: 7px;
+            margin: 4vh;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>This is your Genral Store</h1>
+    <form id="GenralStore">
+        <ul>
+            <li class="one">
+      <label for="item">Item Name :</label><br>
+      <input type="text" id="item" name="user-item" />
+    </li class="one">
+
+    <li class="one">
+      <label for="description">Description :</label><br>
+      <input type="text" id="description" name="
+      user-description" />
+    </li class="one">
+
+      <li class="one">
+      <label for="price">Price :</label><br>
+      <input type="text" id="price" name="user-price" />
+    </li class="one">
+
+      <li class="one">
+      <label for="quanity">Quanity :</label><br>
+      <input type="text" id="quanity" name="user-quanity" />
+      </li class="one">
+
+      <input type="submit" class="btn" value="Add item" />
+    </ul>
+    </form>
+
+    <ul id="Useritems"></ul>
+    <script src="js.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.5/axios.min.js"></script>
+  </body>
+</html>
